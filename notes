@@ -1,0 +1,506 @@
+#########
+# Step 1
+
+Code affected: none
+
+Created this file.
+
+#########
+# Step 2
+
+Code affected: all .java files
+
+Reformatted using the Google Java style formatter.
+
+##################
+# Step 3
+
+Code affected: Pig.turnAround
+
+Flaw: Duplicate code: There is an unnecessary if.
+
+Fix: Replaced if statement with a single assignment statement.
+
+##################
+# Step 4
+
+Code affected: Animal.java
+
+Flaw: Duplicated variables and methods: setLocation,reverseAppearance,etc.
+
+Fix: Created a super class for all animals, with setLocation,reverseAppearance,turnAround, drawString and draw methods.
+
+##################
+# Step 5
+
+Code affected: Animal,Cow,Pig,Chicken
+
+Flaw: Duplicated variables and methods: setLocation,reverseAppearance,turnAround
+
+Fix: Deleted duplicated methods and variables in subclasses,
+     modified variables and methods' visibility in superclass Animal for inheritance.
+
+##################
+# Step 6
+
+Code affected: Human(Constructor, drawString, draw), Animal(drawString)
+
+Flaw: Duplicated variables and methods between Human and Animal
+
+Fix: Deleted duplicated codes for draw in Human, modified visibility of drawString and draw in Animal for overriding.
+
+##################
+# Step 7
+
+Code affected: Chicken.digest, Pig, Cow, Animal.clearStomach
+
+Flaw: Duplicated methods/inconsistent names: clearStomach/digest in subclasses
+
+Fix: Added the method clearStomach in Animal, modified method's visibility for inheritance,
+     changed the name and instance variables in Chicken.digest for consistency.
+
+##################
+# Step 8
+
+Code affected: Chicken.move (minor revision following previous step)
+
+Flaw: Inconsistent names: digest/clearStomach
+
+Fix: Changed all "digest" to "clearStomach"
+
+##################
+# Step 9
+
+Code affected: ANIMAL_MANURE
+
+Flaw: Bad name: not following the naming convention
+
+Fix: Replaced the original class by AnimalManure
+
+##################
+# Step 10
+
+Code affected: Chicken, Cow, Pig, Main
+
+Flaw: Inconsistent names
+
+Fix: Changed all ANIMAL_MANURE to AnimalManure and manure_appearance to manureAppearance
+
+##################
+# Step 11
+
+Code affected: AnimalManure(Constructor)
+
+Flaw: Improper static variable: manureAppearance differs in subclasses of animals
+
+Fix: Added manureAppearance in Animal and a new Constructor for AnimalManure that takes on a string variable
+
+##################
+# Step 12
+
+Code affected: Chicken, Cow, Pig, Animal(.clearStomach, .move)
+
+Flaw: Duplicated codes due to the use of new AnimalManure constructor
+
+Fix: Modified the clearStomach method in classes so that it follows inheritance format.
+
+##################
+# Step 13
+
+Code affected: None
+
+Revised this note to make it clearer.
+
+##################
+# Step 14
+
+Code affected: Chicken.move, Cow.move, Pig.move, Animal.move
+
+Flaw: Duplicated method: move.
+
+Fix: Added method move to animal, modified/deleted move methods in subclasses for inheritance.
+
+##################
+# Step 15
+
+Code affected: Chicken, Cow, Pig, Animal, NonHuman(new class)
+
+Flaw: clearStomach not in Human, should not be inherited from Animal
+
+Fix: Added a class NonHuman which is the subclass of Animal with clearStomach method, Human inherits Animal directly
+
+##################
+# Step 16
+
+Code affected: Human.move
+
+Flaw: Long method
+
+Fix: Added getEgg and walk methods to break the move method down
+
+##################
+# Step 17
+
+Code affected: Human.move, NonHuman, Animal.move, Chicken.move
+
+Flaw: Human and NonHuman differ in move (e.g. clearing stomach, chances to taking action, ways of going up/down)
+
+Fix: Left Animal.move as default and implemented move method in NonHuman and Human
+
+##################
+# Step 18
+
+Code affected: Animal, Egg, AnimalFood, Animal Manure, Farm(new class)
+
+Flaw: Duplicated variables(appearance, colour, coordinates) and methods(setLocation, draw)
+
+Fix: Added a super class Farm to represent all stuff(except wind) in the farm ville
+
+##################
+# Step 19
+
+Code affected: All .java files
+
+Flaw: Bad Visibility Modifiers
+
+Fix: Modified visibility modifiers for variables and methods,
+     made superclasses abstract to prevent constructing instances of Animal,Farm and NonHuman.
+
+
+##################
+# Step 20
+
+Code affected: AnimalManure (Constructor)
+
+Flaw: Unused constructor (the origin constructor without parameter)
+
+Fix: Deleted
+
+##################
+# Step 21
+
+Code affected: All .java files
+
+Flaw: Coordinate discrepancy
+
+Fix: Replaced all r,c by x, y so that x represents left/right direction, y represents up/down direction
+
+##################
+# Step 22
+
+Code affected: Main, Wind, AnimalFood
+
+Flaw: Code in "ActionEvent" in Main class modifying attributes of AnimalFood directly
+
+Fix: Added move method to AnimalFood
+
+##################
+# Step 23
+
+Code affected: Human.getEgg
+
+Flaw: Design Flaw: human collects the same egg over and over again and not turn around when approaching eggs
+
+Fix: Added code to remove already collected eggs from myFarmAnimals, made sure Human face towards the right direction
+
+##################
+# Step 24
+
+Code affected: Animal, AnimalFood, Chicken, Human, NonHuman (.move)
+
+Flaw: Index out of bound
+
+Fix: Added goUp/Down/Left/Right methods so Animal will stop if it goes out of boundary when making next move
+
+##################
+# Step 25
+
+Code affected: Human.dropFood
+
+Flaw:Index out of bound
+
+Fix: Added if statements to make sure Human won't put food outside the boundary
+
+##################
+# Step 26
+
+Code affected: Animal.draw, Chicken.draw, Farm.draw, Human.thing, Human.g, Main(charWidth/Height)
+
+Flaw:Unused/Improper variables
+
+Fix: Deleted Human.thing, Human.g, made charWidth, charHeight attributes of Farm class
+
+##################
+# Step 27
+
+Code affected: Wind, AnimalFood
+
+Flaw: Lazy Class: Wind only has two methods and lacks attributes
+
+Fix: Deleted Wind and added blowingUp, blowingRight in AnimalFood in order that food moves as before
+
+##################
+# Step 28
+
+Code affected: Pig, Cow, Chicken, Human, Egg (print statements)
+
+Flaw: Inappropriate print statements: print things to screen while running user interface
+
+Fix: Deleted unnecessary print statements in classes
+
+##################
+# Step 29
+
+Code affected: Farm, Human (.draw, .drawString)
+
+Flaw: Duplicated methods: draw is only a wrapper class of drawString
+
+Fix: Deleted drawString and modified draw
+
+##################
+# Step 30
+
+Code affected: Main.start, Main.drawShape
+
+Flaw: Unnecessary use of instanceOf
+
+Fix: Generalized the checking of "instanceOf" to Animal and Farm instead of subclasses
+
+##################
+# Step 31
+
+Code affected: Main, Farm (myFarmAnimals)
+
+Flaw: Design flaw: animals replaced by later-added things
+
+Fix: Kept track of animals using a new ArrayList Farm.myFarmAnimals instead of Human.myFarmAnimals
+
+##################
+# Step 32
+
+Code affected: Chicken, Human, Main (chicken_manure_age)
+
+Flaw: Variable declared in wrong classes: chicken_manure_age should be a feature of Chicken instead of Human
+
+Fix: Moved the declaration of this variable to Chicken, modified other codes accordingly
+
+##################
+# Step 33
+
+Code affected: AnimalManure, Chicken, Main, NonHuman
+
+Flaw: Almost empty 2D array: chicken_manure_age
+
+Fix: Added (ArrayList)myAnimalManure to store manure,timeStart as a feature of Manure to record the time it is produced
+
+Note: Design changed: "Disappearing after a certain time" will be a feature of all AnimalManure after this step
+
+##################
+# Step 34
+
+Code affected: Chicken, Egg, Human, Main (previous: myFarmAnimals, new: eggs, myAnimalFood)
+
+Flaw: Almost empty 2D array: myFarmAnimals
+
+Fix: Added ArrayList eggs and myAnimalFood to record Egg Chicken lay and AnimalFood Human spread
+
+##################
+# Step 35
+
+Code affected: Human.timeStart, Human.myBasket in Human and Main class
+
+Flaw: Useless variables
+
+Fix: Deleted codes related to Human.timeStart, changed myBasket from ArrayList to int (as counter for collected eggs)
+
+##################
+# Step 36
+
+Code affected: Human.move
+
+Flaw: Design Flaw: Same egg could be collected twice and Humans rushed to the same egg at one time
+
+Fix: Added nextEgg that refers to the index of the next egg which could be collected in Chicken.eggs
+
+##################
+# Step 37
+
+Code affected: Pig and Cow
+
+Flaw: Design Flaw: Pig and Cow cannot move vertically
+
+Fix: Added boolean goingUp in each class and included goUp/Down in move method of NonHuman for inheritance
+
+##################
+# Step 38
+
+Code affected: Animal, NonHuman, Human, Chicken (.move)
+
+Flaw: Duplicated generation of random number
+
+Fix: Used if else statements so that random number is generated less than twice in each method
+
+##################
+# Step 39
+
+Code affected: AnimalFood.blowingUp, AnimalFood.blowingLeft
+
+Flaw: Duplicated codes
+
+Fix: Merged two methods into the method blowing that takes lastUp/lastLeft as parameter
+
+##################
+# Step 40
+
+Code affected: Animal.goUp/Down/Left/Right, AnimalFood.move, Farm, Human.dropFood
+
+Flaw: Recalculating the right and lower bounds of Farm; Design flaw: Animal hide by window when index is 0
+
+Fix: Added instances left/right/up/lowBound to set the boundary of Farm
+
+##################
+# Step 41
+
+Code affected: Chicken, Human, NonHuman, Farm
+
+Flaw: None
+
+Fix: Moved ArrayLists eggs, myAnimalManure, myAnimalFood to Farm for easier record
+
+##################
+# Step 42
+
+Code affected: Animal.reverseAppearance
+
+Flaw: String concatenation in loop
+
+Fix: Built reverse using StringBuilder then converted the result back to string
+
+##################
+# Step 43
+
+Code affected: Main(EventHandler)
+
+Flaw: Checkstyle warning
+
+Fix: Replaced EventHandler by lambda
+
+##################
+# Step 44
+
+Code affected: Main, Animal (new method: assignLocation)
+
+Flaw: Design Flaw: Animals start at a certain location every time
+
+Fix: Added assignLocation to assign Animal a random location and used it in Main when constructing new animals
+
+##################
+# Step 45
+
+Code affected: All .java (finalize Javadoc)
+
+Flaw: Formatting
+
+Fix: Checked all javadoc, added/deleted as needed
+     Modified this notes, rephrasing Flaw and Fix in some steps for better readability
+
+##################
+# Step 45_1
+
+Code affected: .java, Finalize Javadoc with minor edits
+
+Flaw: Formatting
+
+Fix: Checked all javadoc
+
+##################
+# Step 46
+
+Code affected: Main, Goose(new class)
+
+A new class Goose that represents a goose on the farm. It is a subclass of NonHuman (animal).
+New feature: eatFood. A goose will become hungry from time to time by chance. After that, it will search for
+food. If there is food on the farm, this goose will move towards the food. Otherwise, it will move as NonHuman animals
+(goUp, goDown, turnAround, clearStomach, etc).
+After this goose eats the food, the food will be removed from Farm,(i.e. from the ArrayList myAnimalFood) and the goose
+will become not beingHungry. It will become hungry randomly afterwards.
+
+##################
+# Step 47
+
+Code affected: Animal.getTarget(new method), Goose.eatFood, Human.getEgg
+
+Flaw: Duplicated methods: getEgg and eatFood
+
+Fix: Added getTarget in Animal to reuse codes.
+
+##################
+# Step 48
+
+Code affected: NonHuman.move, Goose.move;  Pig, Cow, Chicken (Constructor)
+
+Flaw: Duplicated methods: getEgg and eatFood (Continue from Step 47)
+
+Fix: Generalized eatFood method to all NonHuman animals
+
+##################
+# Step 49 (Following up of Step 45)
+
+Code affected: .java,  Finalize Javadoc
+
+Flaw: Formatting
+
+Fix: Checked all javadoc
+
+##################
+# Step 49_1
+
+Code affected: Human.java,  Animal.java, Finalize Javadoc
+
+Flaw: Missing one Javadoc for getTarget method
+
+Fix: Added and made minor adjustment of javadoc in Human
+
+##################
+# Step 50
+
+Code affected: AnimalFood, Wind
+
+Flaw: None
+
+Separated the class Wind from AnimalFood in preparation for the method in Goose class
+
+##################
+# Step 51 (Following up of Step 45, 49)
+
+Code affected: NonHuman.move
+
+Flaw: the chance for clearStomach is 0
+
+Fix: Increased the chance
+
+###################
+Step 52 (Following up of Step 46: design a new class)
+
+Code affected: Goose
+
+A new class Goose that represents a goose on the farm. It is a subclass of NonHuman (animal).
+
+New feature 1: eatFood (generalized to all nonhuman animals in Step 48). A goose will become hungry from time to time
+by chance. After that, it will search for food. If there is food on the farm, this goose will move towards the food.
+Otherwise, it will move as NonHuman animals (goUp, goDown, turnAround, clearStomach, etc).
+After this goose eats the food, the food will be removed from Farm,(i.e. from the ArrayList myAnimalFood) and the goose
+will become not beingHungry. It will become hungry randomly afterwards.
+
+New feature 2: A goose is able to glide and will glide randomly. When it glides, it will move forward 2 steps with no wind,
+7 steps with the wind of the same direction and -3 steps with the wind of the opposite direction.
+
+##################
+# Step 53
+
+Code affected: .java,  Finalize Javadoc
+
+Flaw: Visibility modifiers
+
+Fix: Added getter and setter for variables
+
